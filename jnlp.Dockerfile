@@ -1,4 +1,4 @@
-FROM jenkins/inbound-agent:3206.vb_15dcf73f6a_9-3-alpine
+FROM jenkins/inbound-agent:3206.vb_15dcf73f6a_9-7-alpine
 
 # Information
 LABEL org.opencontainers.image.authors="hiteshnayak305@gmail.com"
