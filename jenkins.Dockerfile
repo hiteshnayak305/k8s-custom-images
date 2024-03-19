@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:2.440.1-jdk17
+FROM jenkins/jenkins:2.440.1-alpine
 
 # Information
 LABEL org.opencontainers.image.authors="hiteshnayak305@gmail.com"

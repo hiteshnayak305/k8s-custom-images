@@ -36,8 +36,8 @@ pipeline {
       steps {
         container('kaniko') {
           sh "/kaniko/executor --dockerfile `pwd`/gitea.Dockerfile --context `pwd` --destination=docker.io/hiteshnayak305/gitea:1.21.7-rootless"
-          sh "/kaniko/executor --dockerfile `pwd`/jenkins.Dockerfile --context `pwd` --destination=docker.io/hiteshnayak305/jenkins:2.440.1-jdk17"
-          sh "/kaniko/executor --dockerfile `pwd`/jnlp.Dockerfile --context `pwd` --destination=docker.io/hiteshnayak305/inbound-agent:3206.vb_15dcf73f6a_9-3"
+          sh "/kaniko/executor --dockerfile `pwd`/jenkins.Dockerfile --context `pwd` --destination=docker.io/hiteshnayak305/jenkins:2.440.1-alpine"
+          sh "/kaniko/executor --dockerfile `pwd`/jnlp.Dockerfile --context `pwd` --destination=docker.io/hiteshnayak305/inbound-agent:3206.vb_15dcf73f6a_9-3-alpine"
           sh "/kaniko/executor --dockerfile `pwd`/kaniko.Dockerfile --context `pwd` --destination=docker.io/hiteshnayak305/kaniko:latest"
           sh "/kaniko/executor --dockerfile `pwd`/k8s.Dockerfile --context `pwd` --destination=docker.io/hiteshnayak305/k8s:1.29.2"
           sh "/kaniko/executor --dockerfile `pwd`/jdk21.Dockerfile --context `pwd` --destination=docker.io/hiteshnayak305/eclipse-temurin:21-jdk-alpine"
