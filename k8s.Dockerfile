@@ -1,4 +1,5 @@
-FROM alpine/k8s:1.29.2
+ARG TAG=latest
+FROM alpine/k8s:$TAG
 
 # Information
 LABEL org.opencontainers.image.authors="hiteshnayak305@gmail.com"

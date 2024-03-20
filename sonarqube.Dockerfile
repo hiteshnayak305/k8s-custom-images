@@ -1,4 +1,5 @@
-FROM sonarqube:10.4.1-community
+ARG TAG=latest
+FROM sonarqube:$TAG
 
 # Information
 LABEL org.opencontainers.image.authors="hiteshnayak305@gmail.com"

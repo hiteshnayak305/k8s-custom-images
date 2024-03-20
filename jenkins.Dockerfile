@@ -1,4 +1,5 @@
-FROM jenkins/jenkins:2.440.1-alpine
+ARG TAG=latest
+FROM jenkins/jenkins:$TAG
 
 # Information
 LABEL org.opencontainers.image.authors="hiteshnayak305@gmail.com"

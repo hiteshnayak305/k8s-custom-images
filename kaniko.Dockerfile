@@ -6,7 +6,8 @@ COPY common/custom.crt /usr/local/share/ca-certificates/
 RUN update-ca-certificates
 
 # build actual image
-FROM gcr.io/kaniko-project/executor:debug
+ARG TAG=latest
+FROM gcr.io/kaniko-project/executor:$TAG
 
 # Information
 LABEL org.opencontainers.image.authors="hiteshnayak305@gmail.com"

@@ -1,4 +1,5 @@
-FROM node:20-alpine
+ARG TAG=latest
+FROM node:$TAG
 
 # Information
 LABEL org.opencontainers.image.authors="hiteshnayak305@gmail.com"

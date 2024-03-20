@@ -1,4 +1,5 @@
-FROM sonarsource/sonar-scanner-cli:5
+ARG TAG=latest
+FROM sonarsource/sonar-scanner-cli:$TAG
 
 # Information
 LABEL org.opencontainers.image.authors="hiteshnayak305@gmail.com"

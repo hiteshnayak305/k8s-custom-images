@@ -1,10 +1,21 @@
+# versions
+export GITEA_TAG="1.21.7-rootless"
+export JENKINS_TAG="2.440.1-alpine"
+export INBOUND_AGENT_TAG="3206.vb_15dcf73f6a_9-7-alpine"
+export KANIKO_TAG="debug"
+export K8S_TAG="1.29.2"
+export ECLIPSE_TEMURIN_TAG="21-jdk-alpine"
+export NODE_TAG="20-alpine"
+export SSC_TAG="5"
+export SONARQUBE_TAG="10.4.1-community"
 
-docker build -t hiteshnayak305/gitea:1.21.7-rootless -f gitea.Dockerfile .
-docker build -t hiteshnayak305/jenkins:2.440.1-alpine -f jenkins.Dockerfile .
-docker build -t hiteshnayak305/inbound-agent:3206.vb_15dcf73f6a_9-7-alpine -f jnlp.Dockerfile .
-docker build -t hiteshnayak305/kaniko:debug -f kaniko.Dockerfile .
-docker build -t hiteshnayak305/k8s:1.29.2 -f k8s.Dockerfile .
-docker build -t hiteshnayak305/eclipse-temurin:21-jdk-alpine -f jdk21.Dockerfile .
-docker build -t hiteshnayak305/node:20-alpine -f node20.Dockerfile .
-docker build -t hiteshnayak305/sonar-scanner-cli:5 -f ssc5.Dockerfile .
-docker build -t hiteshnayak305/sonarqube:10.4.1-community -f sonarqube.Dockerfile .
+# build images
+docker build --build-arg TAG=$GITEA_TAG -t hiteshnayak305/gitea:$GITEA_TAG -f gitea.Dockerfile .
+docker build --build-arg TAG=$JENKINS_TAG -t hiteshnayak305/jenkins:$JENKINS_TAG -f jenkins.Dockerfile .
+docker build --build-arg TAG=$INBOUND_AGENT_TAG -t hiteshnayak305/inbound-agent:$INBOUND_AGENT_TAG -f jnlp.Dockerfile .
+docker build --build-arg TAG=$KANIKO_TAG -t hiteshnayak305/kaniko:$KANIKO_TAG -f kaniko.Dockerfile .
+docker build --build-arg TAG=$K8S_TAG -t hiteshnayak305/k8s:$K8S_TAG -f k8s.Dockerfile .
+docker build --build-arg TAG=$ECLIPSE_TEMURIN_TAG -t hiteshnayak305/eclipse-temurin:$ECLIPSE_TEMURIN_TAG -f jdk.Dockerfile .
+docker build --build-arg TAG=$NODE_TAG -t hiteshnayak305/node:$NODE_TAG -f node.Dockerfile .
+docker build --build-arg TAG=$SSC_TAG -t hiteshnayak305/sonar-scanner-cli:$SSC_TAG -f ssc.Dockerfile .
+docker build --build-arg TAG=$SONARQUBE_TAG -t hiteshnayak305/sonarqube:$SONARQUBE_TAG -f sonarqube.Dockerfile .

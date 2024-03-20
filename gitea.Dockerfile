@@ -1,4 +1,5 @@
-FROM gitea/gitea:1.21.7-rootless
+ARG TAG=latest
+FROM gitea/gitea:$TAG
 
 # Information
 LABEL org.opencontainers.image.authors="hiteshnayak305@gmail.com"

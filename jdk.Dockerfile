@@ -1,4 +1,5 @@
-FROM eclipse-temurin:21-jdk-alpine
+ARG TAG=latest
+FROM eclipse-temurin:$TAG
 
 # Information
 LABEL org.opencontainers.image.authors="hiteshnayak305@gmail.com"
