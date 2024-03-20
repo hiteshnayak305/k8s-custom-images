@@ -7,6 +7,5 @@ LABEL description="This is a customized Jenkins sonar scanner cli Image to be de
 
 # Install custom Root CA Certificate
 COPY common/custom.crt /usr/local/share/ca-certificates/
-RUN chmod 0644 /usr/local/share/ca-certificates/custom.crt && \
-    update-ca-certificates && \
+RUN update-ca-certificates && \
     ${JAVA_HOME}/bin/keytool -import -cacerts -alias custom -noprompt -storepass changeit -file /usr/local/share/ca-certificates/custom.crt

@@ -8,6 +8,5 @@ LABEL description="This is a customized Gitea Image to be deployed in local kube
 # Install custom Root CA Certificate
 USER root
 COPY common/custom.crt /usr/local/share/ca-certificates/
-RUN chmod 0644 /usr/local/share/ca-certificates/custom.crt && \
-    update-ca-certificates
+RUN update-ca-certificates
 USER 1000:1000

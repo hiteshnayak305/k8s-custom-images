@@ -1,7 +1,7 @@
 # Generate latest ca-certificates
 FROM debian:bullseye-slim AS certs
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt update && apt install -y ca-certificates --option=Dpkg::Options::=--force-confdef && apt clean
+RUN apt update && apt --no-install-recommends install -y ca-certificates --option=Dpkg::Options::=--force-confdef && apt clean
 COPY common/custom.crt /usr/local/share/ca-certificates/
 RUN update-ca-certificates
 
