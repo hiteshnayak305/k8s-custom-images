@@ -1,4 +1,4 @@
-FROM sonarqube:10.4.0-community
+FROM sonarqube:10.4.1-community
 
 # Information
 LABEL org.opencontainers.image.authors="hiteshnayak305@gmail.com"

@@ -43,7 +43,7 @@ pipeline {
           sh "/kaniko/executor --dockerfile `pwd`/jdk21.Dockerfile --context `pwd` --destination=docker.io/hiteshnayak305/eclipse-temurin:21-jdk-alpine"
           sh "/kaniko/executor --dockerfile `pwd`/node20.Dockerfile --context `pwd` --destination=docker.io/hiteshnayak305/node:20-alpine"
           sh "/kaniko/executor --dockerfile `pwd`/ssc5.Dockerfile --context `pwd` --destination=docker.io/hiteshnayak305/sonar-scanner-cli:5"
-          sh "/kaniko/executor --dockerfile `pwd`/sonarqube.Dockerfile --context `pwd` --destination=docker.io/hiteshnayak305/sonarqube:10.4.0-community"
+          sh "/kaniko/executor --dockerfile `pwd`/sonarqube.Dockerfile --context `pwd` --destination=docker.io/hiteshnayak305/sonarqube:10.4.1-community"
         }
       }
     }

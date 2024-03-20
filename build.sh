@@ -7,4 +7,4 @@ docker build -t hiteshnayak305/k8s:1.29.2 -f k8s.Dockerfile .
 docker build -t hiteshnayak305/eclipse-temurin:21-jdk-alpine -f jdk21.Dockerfile .
 docker build -t hiteshnayak305/node:20-alpine -f node20.Dockerfile .
 docker build -t hiteshnayak305/sonar-scanner-cli:5 -f ssc5.Dockerfile .
-docker build -t hiteshnayak305/sonarqube:10.4.0-community -f sonarqube.Dockerfile .
+docker build -t hiteshnayak305/sonarqube:10.4.1-community -f sonarqube.Dockerfile .

@@ -7,4 +7,4 @@ docker image push hiteshnayak305/k8s:1.29.2
 docker image push hiteshnayak305/eclipse-temurin:21-jdk-alpine
 docker image push hiteshnayak305/node:20-alpine
 docker image push hiteshnayak305/sonar-scanner-cli:5
-docker image push hiteshnayak305/sonarqube:10.4.0-community
+docker image push hiteshnayak305/sonarqube:10.4.1-community
