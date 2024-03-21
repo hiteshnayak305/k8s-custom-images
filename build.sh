@@ -11,6 +11,7 @@ export SONARQUBE_TAG="10.4.1-community"
 export GRAFANA_TAG="10.4.0"
 export PROMETHEUS_TAG="v2.50.1"
 export PROMTAIL_TAG="2.9.3"
+export K_E_EXPORTER_TAG="1.6.1-debian-12-r16"
 
 # build images
 docker build --build-arg TAG=$GITEA_TAG -t hiteshnayak305/gitea:$GITEA_TAG -f gitea.Dockerfile .
@@ -25,3 +26,4 @@ docker build --build-arg TAG=$SONARQUBE_TAG -t hiteshnayak305/sonarqube:$SONARQU
 docker build --build-arg TAG=$GRAFANA_TAG -t hiteshnayak305/grafana:$GRAFANA_TAG -f grafana.Dockerfile .
 docker build --build-arg TAG=$PROMETHEUS_TAG -t hiteshnayak305/prometheus:$PROMETHEUS_TAG -f prometheus.Dockerfile .
 docker build --build-arg TAG=$PROMTAIL_TAG -t hiteshnayak305/promtail:$PROMTAIL_TAG -f promtail.Dockerfile .
+docker build --build-arg TAG=$K_E_EXPORTER_TAG -t hiteshnayak305/kubernetes-event-exporter:$K_E_EXPORTER_TAG -f kubernetesEventExporter.Dockerfile .

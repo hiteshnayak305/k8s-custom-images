@@ -14,3 +14,4 @@ docker image push hiteshnayak305/sonarqube:$SONARQUBE_TAG
 docker image push hiteshnayak305/grafana:$GRAFANA_TAG
 docker image push hiteshnayak305/prometheus:$PROMETHEUS_TAG
 docker image push hiteshnayak305/promtail:$PROMTAIL_TAG
+docker image push hiteshnayak305/kubernetes-event-exporter:$K_E_EXPORTER_TAG
