@@ -93,3 +93,13 @@ A collection of customized docker images for deployment in local kubernetes clus
 
 - **Image:** [hiteshnayak305/sonarqube](https://hub.docker.com/r/hiteshnayak305/sonarqube)
 - **Base Image:** [sonarqube](https://hub.docker.com/_/sonarqube)
+
+## Grafana
+
+![Docker Stars](https://img.shields.io/docker/stars/hiteshnayak305/grafana)
+![Docker Image Version](https://img.shields.io/docker/v/hiteshnayak305/grafana)
+![Docker Image Size](https://img.shields.io/docker/image-size/hiteshnayak305/grafana)
+![Docker Pulls](https://img.shields.io/docker/pulls/hiteshnayak305/grafana)
+
+- **Image:** [hiteshnayak305/grafana](https://hub.docker.com/r/hiteshnayak305/grafana)
+- **Base Image:** [grafana/grafana](https://hub.docker.com/grafana/grafana)

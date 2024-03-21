@@ -10,6 +10,7 @@ pipeline {
     NODE_TAG = "20-alpine"
     SSC_TAG = "5"
     SONARQUBE_TAG = "10.4.1-community"
+    GRAFANA_TAG = "10.4.0"
   }
   options {
     buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '7', numToKeepStr: '3')
@@ -55,6 +56,7 @@ pipeline {
           sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/node.Dockerfile       --build-arg=TAG=${NODE_TAG} --destination=docker.io/hiteshnayak305/node:${NODE_TAG}"
           sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/ssc.Dockerfile        --build-arg=TAG=${SSC_TAG} --destination=docker.io/hiteshnayak305/sonar-scanner-cli:${SSC_TAG}"
           sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/sonarqube.Dockerfile  --build-arg=TAG=${SONARQUBE_TAG} --destination=docker.io/hiteshnayak305/sonarqube:${SONARQUBE_TAG}"
+          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/grafana.Dockerfile    --build-arg=TAG=${GRAFANA_TAG} --destination=docker.io/hiteshnayak305/grafana:${GRAFANA_TAG}"
         }
       }
     }

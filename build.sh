@@ -8,6 +8,7 @@ export ECLIPSE_TEMURIN_TAG="21-jdk-alpine"
 export NODE_TAG="20-alpine"
 export SSC_TAG="5"
 export SONARQUBE_TAG="10.4.1-community"
+export GRAFANA_TAG="10.4.0"
 
 # build images
 docker build --build-arg TAG=$GITEA_TAG -t hiteshnayak305/gitea:$GITEA_TAG -f gitea.Dockerfile .
@@ -19,3 +20,4 @@ docker build --build-arg TAG=$ECLIPSE_TEMURIN_TAG -t hiteshnayak305/eclipse-temu
 docker build --build-arg TAG=$NODE_TAG -t hiteshnayak305/node:$NODE_TAG -f node.Dockerfile .
 docker build --build-arg TAG=$SSC_TAG -t hiteshnayak305/sonar-scanner-cli:$SSC_TAG -f ssc.Dockerfile .
 docker build --build-arg TAG=$SONARQUBE_TAG -t hiteshnayak305/sonarqube:$SONARQUBE_TAG -f sonarqube.Dockerfile .
+docker build --build-arg TAG=$GRAFANA_TAG -t hiteshnayak305/grafana:$GRAFANA_TAG -f grafana.Dockerfile .
