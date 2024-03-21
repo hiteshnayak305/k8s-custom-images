@@ -22,9 +22,7 @@ A collection of customized docker images for deployment in local kubernetes clus
 - **Image:** [hiteshnayak305/jenkins](https://hub.docker.com/r/hiteshnayak305/jenkins)
 - **Base Image:** [jenkins/jenkins](https://hub.docker.com/r/jenkins/jenkins)
 
-### Jenkins Agents
-
-#### Inbound Agent
+## Inbound Agent
 
 ![Docker Stars](https://img.shields.io/docker/stars/hiteshnayak305/inbound-agent)
 ![Docker Image Version](https://img.shields.io/docker/v/hiteshnayak305/inbound-agent)
@@ -34,7 +32,7 @@ A collection of customized docker images for deployment in local kubernetes clus
 - **Image:** [hiteshnayak305/inbound-agent](https://hub.docker.com/r/hiteshnayak305/inbound-agent)
 - **Base Image:** [jenkins/inbound-agent](https://hub.docker.com/r/jenkins/inbound-agent)
 
-#### Kaniko
+## Kaniko
 
 ![Docker Stars](https://img.shields.io/docker/stars/hiteshnayak305/kaniko)
 ![Docker Image Version](https://img.shields.io/docker/v/hiteshnayak305/kaniko)
@@ -44,7 +42,7 @@ A collection of customized docker images for deployment in local kubernetes clus
 - **Image:** [hiteshnayak305/kaniko](https://hub.docker.com/r/hiteshnayak305/kaniko)
 - **Base Image:** [kaniko-project/executor](https://gcr.io/kaniko-project/executor)
 
-#### K8S tool
+## K8S
 
 ![Docker Stars](https://img.shields.io/docker/stars/hiteshnayak305/k8s)
 ![Docker Image Version](https://img.shields.io/docker/v/hiteshnayak305/k8s)
@@ -54,7 +52,7 @@ A collection of customized docker images for deployment in local kubernetes clus
 - **Image:** [hiteshnayak305/k8s](https://hub.docker.com/r/hiteshnayak305/k8s)
 - **Base Image:** [alpine/k8s](https://hub.docker.com/r/alpine/k8s)
 
-#### JDK
+## Eclipse Temurin
 
 ![Docker Stars](https://img.shields.io/docker/stars/hiteshnayak305/eclipse-temurin)
 ![Docker Image Version](https://img.shields.io/docker/v/hiteshnayak305/eclipse-temurin)
@@ -64,7 +62,7 @@ A collection of customized docker images for deployment in local kubernetes clus
 - **Image:** [hiteshnayak305/eclipse-temurin](https://hub.docker.com/r/hiteshnayak305/eclipse-temurin)
 - **Base Image:** [eclipse-temurin](https://hub.docker.com/_/eclipse-temurin)
 
-#### Node
+## Node
 
 ![Docker Stars](https://img.shields.io/docker/stars/hiteshnayak305/node)
 ![Docker Image Version](https://img.shields.io/docker/v/hiteshnayak305/node)
@@ -74,7 +72,7 @@ A collection of customized docker images for deployment in local kubernetes clus
 - **Image:** [hiteshnayak305/node](https://hub.docker.com/r/hiteshnayak305/node)
 - **Base Image:** [node](https://hub.docker.com/_/node)
 
-#### Sonar Scanner CLI
+## Sonar Scanner CLI
 
 ![Docker Stars](https://img.shields.io/docker/stars/hiteshnayak305/sonar-scanner-cli)
 ![Docker Image Version](https://img.shields.io/docker/v/hiteshnayak305/sonar-scanner-cli)
