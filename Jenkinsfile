@@ -15,7 +15,7 @@ pipeline {
         }
       }
       steps {
-        sh 'Template Jenkinsfile'
+        sh "echo 'skipping...'"
       }
     }
     // stage('Build & Push Docker Image') {
