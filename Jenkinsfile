@@ -42,27 +42,175 @@ pipeline {
       }
     }
     stage('Build & Push Docker Images') {
-      agent {
-        kubernetes {
-          defaultContainer 'jnlp'
-          inheritFrom 'kaniko'
+      parallel {
+        stage('Gitea') {
+          agent {
+            kubernetes {
+              defaultContainer 'jnlp'
+              inheritFrom 'kaniko'
+            }
+          }
+          steps {
+            container('kaniko') {
+              sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/gitea.Dockerfile --build-arg=TAG=${GITEA_TAG} --destination=docker.io/hiteshnayak305/${GITEA_TAG}"
+            }
+          }
         }
-      }
-      steps {
-        container('kaniko') {
-          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/gitea.Dockerfile        --build-arg=TAG=${GITEA_TAG}            --destination=docker.io/hiteshnayak305/${GITEA_TAG}"
-          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/jenkins.Dockerfile      --build-arg=TAG=${JENKINS_TAG}          --destination=docker.io/hiteshnayak305/${JENKINS_TAG}"
-          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/jnlp.Dockerfile         --build-arg=TAG=${INBOUND_AGENT_TAG}    --destination=docker.io/hiteshnayak305/inbound-agent:${INBOUND_AGENT_TAG}"
-          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/kaniko.Dockerfile       --build-arg=TAG=${KANIKO_TAG}           --destination=docker.io/hiteshnayak305/kaniko:${KANIKO_TAG}"
-          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/k8s.Dockerfile          --build-arg=TAG=${K8S_TAG}              --destination=docker.io/hiteshnayak305/k8s:${K8S_TAG}"
-          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/jdk.Dockerfile          --build-arg=TAG=${ECLIPSE_TEMURIN_TAG}  --destination=docker.io/hiteshnayak305/eclipse-temurin:${ECLIPSE_TEMURIN_TAG}"
-          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/node.Dockerfile         --build-arg=TAG=${NODE_TAG}             --destination=docker.io/hiteshnayak305/node:${NODE_TAG}"
-          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/ssc.Dockerfile          --build-arg=TAG=${SSC_TAG}              --destination=docker.io/hiteshnayak305/sonar-scanner-cli:${SSC_TAG}"
-          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/sonarqube.Dockerfile    --build-arg=TAG=${SONARQUBE_TAG}        --destination=docker.io/hiteshnayak305/sonarqube:${SONARQUBE_TAG}"
-          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/grafana.Dockerfile      --build-arg=TAG=${GRAFANA_TAG}          --destination=docker.io/hiteshnayak305/grafana:${GRAFANA_TAG}"
-          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/prometheus.Dockerfile   --build-arg=TAG=${PROMETHEUS_TAG}       --destination=docker.io/hiteshnayak305/prometheus:${PROMETHEUS_TAG}"
-          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/promtail.Dockerfile     --build-arg=TAG=${PROMTAIL_TAG}         --destination=docker.io/hiteshnayak305/promtail:${PROMTAIL_TAG}"
-          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/kubernetesEventExporter.Dockerfile --build-arg=TAG=${K_E_EXPORTER_TAG} --destination=docker.io/hiteshnayak305/kubernetes-event-exporter:${K_E_EXPORTER_TAG}"
+        stage('Jenkins') {
+          agent {
+            kubernetes {
+              defaultContainer 'jnlp'
+              inheritFrom 'kaniko'
+            }
+          }
+          steps {
+            container('kaniko') {
+              sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/jenkins.Dockerfile --build-arg=TAG=${JENKINS_TAG} --destination=docker.io/hiteshnayak305/${JENKINS_TAG}"
+            }
+          }
+        }
+        stage('Inbound Agent') {
+          agent {
+            kubernetes {
+              defaultContainer 'jnlp'
+              inheritFrom 'kaniko'
+            }
+          }
+          steps {
+            container('kaniko') {
+              sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/jnlp.Dockerfile --build-arg=TAG=${INBOUND_AGENT_TAG} --destination=docker.io/hiteshnayak305/inbound-agent:${INBOUND_AGENT_TAG}"
+            }
+          }
+        }
+        stage('Kaniko') {
+          agent {
+            kubernetes {
+              defaultContainer 'jnlp'
+              inheritFrom 'kaniko'
+            }
+          }
+          steps {
+            container('kaniko') {
+              sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/kaniko.Dockerfile --build-arg=TAG=${KANIKO_TAG} --destination=docker.io/hiteshnayak305/kaniko:${KANIKO_TAG}"
+            }
+          }
+        }
+        stage('K8S') {
+          agent {
+            kubernetes {
+              defaultContainer 'jnlp'
+              inheritFrom 'kaniko'
+            }
+          }
+          steps {
+            container('kaniko') {
+              sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/k8s.Dockerfile --build-arg=TAG=${K8S_TAG} --destination=docker.io/hiteshnayak305/k8s:${K8S_TAG}"
+            }
+          }
+        }
+        stage('Eclipse Temurin') {
+          agent {
+            kubernetes {
+              defaultContainer 'jnlp'
+              inheritFrom 'kaniko'
+            }
+          }
+          steps {
+            container('kaniko') {
+              sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/jdk.Dockerfile --build-arg=TAG=${ECLIPSE_TEMURIN_TAG} --destination=docker.io/hiteshnayak305/eclipse-temurin:${ECLIPSE_TEMURIN_TAG}"
+            }
+          }
+        }
+        stage('Node') {
+          agent {
+            kubernetes {
+              defaultContainer 'jnlp'
+              inheritFrom 'kaniko'
+            }
+          }
+          steps {
+            container('kaniko') {
+              sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/node.Dockerfile --build-arg=TAG=${NODE_TAG} --destination=docker.io/hiteshnayak305/node:${NODE_TAG}"
+            }
+          }
+        }
+        stage('Sonar Scanner CLI') {
+          agent {
+            kubernetes {
+              defaultContainer 'jnlp'
+              inheritFrom 'kaniko'
+            }
+          }
+          steps {
+            container('kaniko') {
+              sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/ssc.Dockerfile --build-arg=TAG=${SSC_TAG} --destination=docker.io/hiteshnayak305/sonar-scanner-cli:${SSC_TAG}"
+            }
+          }
+        }
+        stage('SonarQube') {
+          agent {
+            kubernetes {
+              defaultContainer 'jnlp'
+              inheritFrom 'kaniko'
+            }
+          }
+          steps {
+            container('kaniko') {
+              sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/sonarqube.Dockerfile --build-arg=TAG=${SONARQUBE_TAG} --destination=docker.io/hiteshnayak305/sonarqube:${SONARQUBE_TAG}"
+            }
+          }
+        }
+        stage('Grafana') {
+          agent {
+            kubernetes {
+              defaultContainer 'jnlp'
+              inheritFrom 'kaniko'
+            }
+          }
+          steps {
+            container('kaniko') {
+              sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/grafana.Dockerfile --build-arg=TAG=${GRAFANA_TAG} --destination=docker.io/hiteshnayak305/grafana:${GRAFANA_TAG}"
+            }
+          }
+        }
+        stage('Prometheus') {
+          agent {
+            kubernetes {
+              defaultContainer 'jnlp'
+              inheritFrom 'kaniko'
+            }
+          }
+          steps {
+            container('kaniko') {
+              sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/prometheus.Dockerfile --build-arg=TAG=${PROMETHEUS_TAG} --destination=docker.io/hiteshnayak305/prometheus:${PROMETHEUS_TAG}"
+            }
+          }
+        }
+        stage('Promtail') {
+          agent {
+            kubernetes {
+              defaultContainer 'jnlp'
+              inheritFrom 'kaniko'
+            }
+          }
+          steps {
+            container('kaniko') {
+              sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/promtail.Dockerfile --build-arg=TAG=${PROMTAIL_TAG} --destination=docker.io/hiteshnayak305/promtail:${PROMTAIL_TAG}"
+            }
+          }
+        }
+        stage('Kubernetes Event Exporter') {
+          agent {
+            kubernetes {
+              defaultContainer 'jnlp'
+              inheritFrom 'kaniko'
+            }
+          }
+          steps {
+            container('kaniko') {
+              sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/kubernetesEventExporter.Dockerfile --build-arg=TAG=${K_E_EXPORTER_TAG} --destination=docker.io/hiteshnayak305/kubernetes-event-exporter:${K_E_EXPORTER_TAG}"
+            }
+          }
         }
       }
     }
