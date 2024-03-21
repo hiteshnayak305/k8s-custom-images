@@ -7,17 +7,15 @@ pipeline {
     buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '7', numToKeepStr: '3')
   }
   stages {
-    stages {
-      stage('Template') {
-        agent {
-          kubernetes {
-            defaultContainer 'jnlp'
-            inheritFrom 'default'
-          }
+    stage('Template') {
+      agent {
+        kubernetes {
+          defaultContainer 'jnlp'
+          inheritFrom 'default'
         }
-        steps {
-          sh 'Template Jenkinsfile'
-        }
+      }
+      steps {
+        sh 'Template Jenkinsfile'
       }
     }
     // stage('Build & Push Docker Image') {
