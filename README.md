@@ -103,3 +103,23 @@ A collection of customized docker images for deployment in local kubernetes clus
 
 - **Image:** [hiteshnayak305/grafana](https://hub.docker.com/r/hiteshnayak305/grafana)
 - **Base Image:** [grafana/grafana](https://hub.docker.com/grafana/grafana)
+
+## Prometheus
+
+![Docker Stars](https://img.shields.io/docker/stars/hiteshnayak305/prometheus)
+![Docker Image Version](https://img.shields.io/docker/v/hiteshnayak305/prometheus)
+![Docker Image Size](https://img.shields.io/docker/image-size/hiteshnayak305/prometheus)
+![Docker Pulls](https://img.shields.io/docker/pulls/hiteshnayak305/prometheus)
+
+- **Image:** [hiteshnayak305/prometheus](https://hub.docker.com/r/hiteshnayak305/prometheus)
+- **Base Image:** [quay.io/prometheus/prometheus](https://quay.io/repository/prometheus/prometheus)
+
+## Promtail
+
+![Docker Stars](https://img.shields.io/docker/stars/hiteshnayak305/promtail)
+![Docker Image Version](https://img.shields.io/docker/v/hiteshnayak305/promtail)
+![Docker Image Size](https://img.shields.io/docker/image-size/hiteshnayak305/promtail)
+![Docker Pulls](https://img.shields.io/docker/pulls/hiteshnayak305/promtail)
+
+- **Image:** [hiteshnayak305/promtail](https://hub.docker.com/r/hiteshnayak305/promtail)
+- **Base Image:** [grafana/promtail](https://hub.docker.com/grafana/promtail)

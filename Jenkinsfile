@@ -12,6 +12,7 @@ pipeline {
     SONARQUBE_TAG = "10.4.1-community"
     GRAFANA_TAG = "10.4.0"
     PROMETHEUS_TAG = "v2.50.1"
+    PROMTAIL_TAG = "2.9.3"
   }
   options {
     buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '7', numToKeepStr: '3')
@@ -59,6 +60,7 @@ pipeline {
           sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/sonarqube.Dockerfile    --build-arg=TAG=${SONARQUBE_TAG}        --destination=docker.io/hiteshnayak305/sonarqube:${SONARQUBE_TAG}"
           sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/grafana.Dockerfile      --build-arg=TAG=${GRAFANA_TAG}          --destination=docker.io/hiteshnayak305/grafana:${GRAFANA_TAG}"
           sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/prometheus.Dockerfile   --build-arg=TAG=${PROMETHEUS_TAG}       --destination=docker.io/hiteshnayak305/prometheus:${PROMETHEUS_TAG}"
+          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/promtail.Dockerfile     --build-arg=TAG=${PROMTAIL_TAG}         --destination=docker.io/hiteshnayak305/promtail:${PROMTAIL_TAG}"
         }
       }
     }
