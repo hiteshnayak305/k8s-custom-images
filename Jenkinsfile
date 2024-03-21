@@ -11,6 +11,7 @@ pipeline {
     SSC_TAG = "5"
     SONARQUBE_TAG = "10.4.1-community"
     GRAFANA_TAG = "10.4.0"
+    PROMETHEUS_TAG = "v2.50.1"
   }
   options {
     buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '7', numToKeepStr: '3')
@@ -47,16 +48,17 @@ pipeline {
       }
       steps {
         container('kaniko') {
-          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/gitea.Dockerfile      --build-arg=TAG=${GITEA_TAG} --destination=docker.io/hiteshnayak305/${GITEA_TAG}"
-          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/jenkins.Dockerfile    --build-arg=TAG=${JENKINS_TAG} --destination=docker.io/hiteshnayak305/${JENKINS_TAG}"
-          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/jnlp.Dockerfile       --build-arg=TAG=${INBOUND_AGENT_TAG} --destination=docker.io/hiteshnayak305/inbound-agent:${INBOUND_AGENT_TAG}"
-          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/kaniko.Dockerfile     --build-arg=TAG=${KANIKO_TAG} --destination=docker.io/hiteshnayak305/kaniko:${KANIKO_TAG}"
-          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/k8s.Dockerfile        --build-arg=TAG=${K8S_TAG} --destination=docker.io/hiteshnayak305/k8s:${K8S_TAG}"
-          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/jdk.Dockerfile        --build-arg=TAG=${ECLIPSE_TEMURIN_TAG} --destination=docker.io/hiteshnayak305/eclipse-temurin:${ECLIPSE_TEMURIN_TAG}"
-          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/node.Dockerfile       --build-arg=TAG=${NODE_TAG} --destination=docker.io/hiteshnayak305/node:${NODE_TAG}"
-          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/ssc.Dockerfile        --build-arg=TAG=${SSC_TAG} --destination=docker.io/hiteshnayak305/sonar-scanner-cli:${SSC_TAG}"
-          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/sonarqube.Dockerfile  --build-arg=TAG=${SONARQUBE_TAG} --destination=docker.io/hiteshnayak305/sonarqube:${SONARQUBE_TAG}"
-          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/grafana.Dockerfile    --build-arg=TAG=${GRAFANA_TAG} --destination=docker.io/hiteshnayak305/grafana:${GRAFANA_TAG}"
+          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/gitea.Dockerfile        --build-arg=TAG=${GITEA_TAG}            --destination=docker.io/hiteshnayak305/${GITEA_TAG}"
+          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/jenkins.Dockerfile      --build-arg=TAG=${JENKINS_TAG}          --destination=docker.io/hiteshnayak305/${JENKINS_TAG}"
+          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/jnlp.Dockerfile         --build-arg=TAG=${INBOUND_AGENT_TAG}    --destination=docker.io/hiteshnayak305/inbound-agent:${INBOUND_AGENT_TAG}"
+          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/kaniko.Dockerfile       --build-arg=TAG=${KANIKO_TAG}           --destination=docker.io/hiteshnayak305/kaniko:${KANIKO_TAG}"
+          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/k8s.Dockerfile          --build-arg=TAG=${K8S_TAG}              --destination=docker.io/hiteshnayak305/k8s:${K8S_TAG}"
+          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/jdk.Dockerfile          --build-arg=TAG=${ECLIPSE_TEMURIN_TAG}  --destination=docker.io/hiteshnayak305/eclipse-temurin:${ECLIPSE_TEMURIN_TAG}"
+          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/node.Dockerfile         --build-arg=TAG=${NODE_TAG}             --destination=docker.io/hiteshnayak305/node:${NODE_TAG}"
+          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/ssc.Dockerfile          --build-arg=TAG=${SSC_TAG}              --destination=docker.io/hiteshnayak305/sonar-scanner-cli:${SSC_TAG}"
+          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/sonarqube.Dockerfile    --build-arg=TAG=${SONARQUBE_TAG}        --destination=docker.io/hiteshnayak305/sonarqube:${SONARQUBE_TAG}"
+          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/grafana.Dockerfile      --build-arg=TAG=${GRAFANA_TAG}          --destination=docker.io/hiteshnayak305/grafana:${GRAFANA_TAG}"
+          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/prometheus.Dockerfile   --build-arg=TAG=${PROMETHEUS_TAG}       --destination=docker.io/hiteshnayak305/prometheus:${PROMETHEUS_TAG}"
         }
       }
     }

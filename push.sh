@@ -12,3 +12,4 @@ docker image push hiteshnayak305/node:$NODE_TAG
 docker image push hiteshnayak305/sonar-scanner-cli:$SSC_TAG
 docker image push hiteshnayak305/sonarqube:$SONARQUBE_TAG
 docker image push hiteshnayak305/grafana:$GRAFANA_TAG
+docker image push hiteshnayak305/prometheus:$PROMETHEUS_TAG
