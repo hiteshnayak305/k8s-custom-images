@@ -131,3 +131,13 @@ A collection of customized docker images for deployment in local kubernetes clus
 
 - **Image:** [hiteshnayak305/kubernetes-event-exporter](https://hub.docker.com/r/hiteshnayak305/kubernetes-event-exporter)
 - **Base Image:** [bitnami/kubernetes-event-exporter](https://hub.docker.com/r/bitnami/kubernetes-event-exporter)
+
+## Debug
+
+![Docker Stars](https://img.shields.io/docker/stars/hiteshnayak305/debug)
+![Docker Image Version](https://img.shields.io/docker/v/hiteshnayak305/debug)
+![Docker Image Size](https://img.shields.io/docker/image-size/hiteshnayak305/debug)
+![Docker Pulls](https://img.shields.io/docker/pulls/hiteshnayak305/debug)
+
+- **Image:** [hiteshnayak305/debug](https://hub.docker.com/r/hiteshnayak305/debug)
+- **Base Image:** [ubuntu](https://hub.docker.com/_/ubuntu)
