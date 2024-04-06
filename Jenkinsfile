@@ -1,35 +1,30 @@
 pipeline {
   agent none
-  environment {
-    VERSION = "X.X.X"
-  }
   options {
     buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '7', numToKeepStr: '3')
   }
   stages {
-    stage('Template') {
+    stage('Build & Push Docker Image') {
+      when {
+        branch comparator: 'GLOB', pattern: 'hiteshnayak305/**'
+        beforeOptions true
+      }
       agent {
         kubernetes {
           defaultContainer 'jnlp'
-          inheritFrom 'default'
+          inheritFrom 'kaniko'
         }
       }
       steps {
-        sh "echo 'skipping...'"
+        script {
+          env.IMAGE = env.BRANCH_NAME.toString().split("@")[0];
+          env.VERSION = env.BRANCH_NAME.toString().split("@")[1];
+          env.CONTEXT = env.BRANCH_NAME.toString();
+        }
+        container('kaniko') {
+          sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/${env.CONTEXT}/Dockerfile --build-arg=VERSION=${env.VERSION} --destination=docker.io/${env.IMAGE}:${env.VERSION}"
+        }
       }
     }
-    // stage('Build & Push Docker Image') {
-    //   agent {
-    //     kubernetes {
-    //       defaultContainer 'jnlp'
-    //       inheritFrom 'kaniko'
-    //     }
-    //   }
-    //   steps {
-    //     container('kaniko') {
-    //       sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/Dockerfile --build-arg=VERSION=${VERSION} --destination=docker.io/hiteshnayak305/<name>:${VERSION}"
-    //     }
-    //   }
-    // }
   }
 }

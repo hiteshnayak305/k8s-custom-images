@@ -1,4 +1,5 @@
 .git
 *.sh
+sonar-project.properties
 LICENSE
 README.md
