@@ -17,10 +17,10 @@ USER jenkins
 ENV COLLECTING_METRICS_PERIOD_IN_SECONDS=30
 
 RUN jenkins-plugin-cli --war /usr/share/jenkins/jenkins.war --latest true --plugins \
-    json-path-api \
+    json-path-api oic-auth keycloak mailer \
     kubernetes workflow-aggregator git configuration-as-code \
     gitea blueocean job-dsl purge-job-history jobConfigHistory view-job-filters dependency-check-jenkins-plugin \
     junit jacoco htmlpublisher \
     material-theme \
     prometheus cloudbees-disk-usage-simple \
-    sonar
+    sonar harbor
