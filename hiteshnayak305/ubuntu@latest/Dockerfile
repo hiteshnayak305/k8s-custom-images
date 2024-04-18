@@ -7,8 +7,7 @@ LABEL version="1.0.0"
 LABEL description="This is a customized ubuntu debug Image to be deployed in local kubernetes lab."
 
 # Install custom Root CA Certificate
-RUN apt update
-RUN apt -y --no-install-recommends install ca-certificates && apt clean
+RUN apt update && apt -y --no-install-recommends install ca-certificates && apt clean
 COPY common/custom.crt /usr/local/share/ca-certificates/
 RUN update-ca-certificates
 
