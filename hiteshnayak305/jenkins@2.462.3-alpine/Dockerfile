@@ -10,7 +10,10 @@ LABEL description="This is a customized Jenkins Image to be deployed in local ku
 USER root
 COPY common/custom.crt /usr/local/share/ca-certificates/
 RUN update-ca-certificates && \
-    ${JAVA_HOME}/bin/keytool -import -cacerts -alias custom -noprompt -storepass changeit -file /usr/local/share/ca-certificates/custom.crt
+    ${JAVA_HOME}/bin/keytool -import -cacerts -noprompt\
+        -alias custom \
+        -storepass changeit \
+        -file /usr/local/share/ca-certificates/custom.crt
 USER jenkins
 
 # Customization
