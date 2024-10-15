@@ -11,11 +11,12 @@ RUN apt update && apt -y --no-install-recommends install ca-certificates && apt 
 COPY common/custom.crt /usr/local/share/ca-certificates/
 RUN update-ca-certificates
 
-# Install tools
-RUN apt -y --no-install-recommends install dnsutils \
-    htop \
-    net-tools \
-    nano \
-    wget \
-    curl \
+# update ca certs & Install tools
+RUN update-ca-certificates && \
+    apt -y --no-install-recommends install curl \
+        dnsutils \
+        htop \
+        nano \
+        net-tools \
+        wget \
     && apt clean
