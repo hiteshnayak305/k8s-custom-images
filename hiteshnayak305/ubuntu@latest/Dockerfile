@@ -9,7 +9,6 @@ LABEL description="This is a customized ubuntu debug Image to be deployed in loc
 # Install custom Root CA Certificate
 RUN apt update && apt -y --no-install-recommends install ca-certificates && apt clean
 COPY common/custom.crt /usr/local/share/ca-certificates/
-RUN update-ca-certificates
 
 # update ca certs & Install tools
 RUN update-ca-certificates && \
