@@ -45,8 +45,10 @@ pipeline {
         }
         container('kaniko') {
           withCredentials([file(credentialsId: 'docker-harbor', variable: 'CONFIG')]) {
-            sh "mkdir -p /kaniko/.docker && cat $CONFIG > /kaniko/.docker/config.json"
-            sh "/kaniko/executor --context `pwd` --dockerfile `pwd`/${env.CONTEXT}/Dockerfile --build-arg=VERSION=${env.VERSION} --destination=docker.io/${env.IMAGE}:${env.VERSION}"
+            sh '''
+              mkdir -p /kaniko/.docker && cat $CONFIG > /kaniko/.docker/config.json
+              /kaniko/executor --context `pwd` --dockerfile `pwd`/${env.CONTEXT}/Dockerfile --build-arg=VERSION=${env.VERSION} --destination=docker.io/${env.IMAGE}:${env.VERSION}
+              '''
           }
         }
       }
