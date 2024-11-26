@@ -11,19 +11,19 @@ USER root
 COPY common/custom.crt /usr/local/share/ca-certificates/
 RUN update-ca-certificates && \
     ${JAVA_HOME}/bin/keytool -import -cacerts -noprompt\
-        -alias custom \
-        -storepass changeit \
-        -file /usr/local/share/ca-certificates/custom.crt
+    -alias custom \
+    -storepass changeit \
+    -file /usr/local/share/ca-certificates/custom.crt
 USER jenkins
 
 # Customization
 ENV COLLECTING_METRICS_PERIOD_IN_SECONDS=30
 
 RUN jenkins-plugin-cli --war /usr/share/jenkins/jenkins.war --latest true --plugins \
-    json-path-api oic-auth keycloak mailer \
+    json-path-api mailer \
     kubernetes workflow-aggregator git configuration-as-code \
     gitea blueocean job-dsl purge-job-history jobConfigHistory view-job-filters dependency-check-jenkins-plugin \
-    junit jacoco htmlpublisher \
+    junit jacoco coverage htmlpublisher \
     material-theme \
     prometheus cloudbees-disk-usage-simple \
-    sonar harbor
+    sonar
