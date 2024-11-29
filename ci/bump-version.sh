@@ -16,3 +16,4 @@ sed -i "s/sonar.projectVersion=$1/sonar.projectVersion=$2/1" sonar-project.prope
 git add .
 git commit -m "chore(dev): bump version to $2"
 git tag $2
+git push origin master --tags
