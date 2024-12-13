@@ -5,7 +5,7 @@ declare -a arr=("hiteshnayak305/eclipse-temurin@21-jdk-alpine" "hiteshnayak305/e
 for i in "${arr[@]}"
 do
    echo "updating branch $i"
-   git checkout -b $i  && git merge master
+   git checkout $i  && git merge master
    echo "pushing branch $i"
    git push origin $i
 done
