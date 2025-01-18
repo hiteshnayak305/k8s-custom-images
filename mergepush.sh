@@ -2,7 +2,7 @@
 declare -a arr=( \
    "hiteshnayak305/eclipse-temurin@17-jdk-alpine" \
    "hiteshnayak305/eclipse-temurin@21-jdk-alpine" \
-   "hiteshnayak305/eclipse-temurin@22-jdk-alpine" \
+   "hiteshnayak305/eclipse-temurin@23-jdk-alpine" \
    "hiteshnayak305/gitea@1.22.3-rootless" \
    "hiteshnayak305/grafana@11.4.0" \
    "hiteshnayak305/inbound-agent@3273.v4cfe589b_fd83-1-alpine" \

@@ -1,5 +1,7 @@
 ## declare an array variable
-declare -a arr=("hiteshnayak305/grafana@10.4.0" "hiteshnayak305/grafana@10.4.1")
+declare -a arr=( \
+   "hiteshnayak305/eclipse-temurin@22-jdk-alpine" \
+)
 
 ## now loop through the above array
 for i in "${arr[@]}"
