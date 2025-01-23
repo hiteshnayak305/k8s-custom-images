@@ -14,7 +14,7 @@ declare -a arr=( \
    "hiteshnayak305/node@23-alpine" \
    "hiteshnayak305/promtail@3.0.0" \
    "hiteshnayak305/sonar-scanner-cli@5" \
-   "hiteshnayak305/sonarqube@24.12.0.100206-community" \
+   "hiteshnayak305/sonarqube@25.1.0.102122-community" \
    "hiteshnayak305/ubuntu@latest" \
 )
 
