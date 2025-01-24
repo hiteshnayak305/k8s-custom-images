@@ -1,6 +1,6 @@
 ## declare an array variable
 declare -a arr=( \
-   "hiteshnayak305/sonarqube@24.12.0.100206-community" \
+   "hiteshnayak305/sonar-scanner-cli@5" \
 )
 
 ## now loop through the above array
