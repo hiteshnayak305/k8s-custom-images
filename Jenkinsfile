@@ -12,11 +12,11 @@ pipeline {
       agent {
         kubernetes {
           defaultContainer 'jnlp'
-          inheritFrom 'ssc5'
+          inheritFrom 'ssc'
         }
       }
       steps {
-        container('ssc5') {
+        container('ssc') {
           withSonarQubeEnv('sonarqube') {
             sh "sonar-scanner -Dsonar.host.url=${SONAR_HOST_URL} -Dsonar.token=${SONAR_AUTH_TOKEN}"
           }
