@@ -15,4 +15,6 @@ RUN ${JAVA_HOME}/bin/keytool -import -cacerts -noprompt\
     -storepass changeit \
     -file /custom.crt
 
+ENV SONAR_SCANNER_OPTS="${SONAR_SCANNER_OPTS} -Dsonar.scanner.keystorePath=${JAVA_HOME}/lib/security/cacerts -Dsonar.scanner.keystorePassword=changeit"
+
 USER scanner-cli
