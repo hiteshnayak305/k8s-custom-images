@@ -6,5 +6,13 @@ LABEL org.opencontainers.image.authors="hiteshnayak305@gmail.com"
 LABEL version="1.0.0"
 LABEL description="This is a customized Jenkins sonar scanner cli Image to be deployed in local kubernetes lab."
 
+USER root
+
 # Install custom Root CA Certificate
-COPY common/custom.crt /tmp/cacerts/
+COPY common/custom.crt /custom.crt
+RUN ${JAVA_HOME}/bin/keytool -import -cacerts -noprompt\
+    -alias custom \
+    -storepass changeit \
+    -file /custom.crt
+
+USER scanner-cli
