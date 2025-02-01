@@ -131,3 +131,13 @@ A collection of customized docker images for deployment in local kubernetes clus
 
 - **Image:** [hiteshnayak305/ubuntu](https://hub.docker.com/r/hiteshnayak305/ubuntu)
 - **Base Image:** [ubuntu](https://hub.docker.com/_/ubuntu)
+
+## Immich Server
+
+![Docker Stars](https://img.shields.io/docker/stars/hiteshnayak305/immich-server)
+![Docker Image Version](https://img.shields.io/docker/v/hiteshnayak305/immich-server)
+![Docker Image Size](https://img.shields.io/docker/image-size/hiteshnayak305/immich-server)
+![Docker Pulls](https://img.shields.io/docker/pulls/hiteshnayak305/immich-server)
+
+- **Image:** [hiteshnayak305/immich-server](https://hub.docker.com/r/hiteshnayak305/immich-server)
+- **Base Image:** [immich-server](https://github.com/immich-app/immich/pkgs/container/immich-server)

@@ -16,6 +16,7 @@ declare -a arr=( \
    "hiteshnayak305/sonar-scanner-cli@latest" \
    "hiteshnayak305/sonarqube@25.1.0.102122-community" \
    "hiteshnayak305/ubuntu@latest" \
+   "hiteshnayak305/immich-server@v1.123.0" \
 )
 
 ## now loop through the above array
