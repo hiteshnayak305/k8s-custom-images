@@ -19,7 +19,7 @@ USER root
 ENV POSTGRESQL_SHARED_PRELOAD_LIBRARIES="pgaudit,vectors.so"
 #ENV POSTGRESQL_EXTRA_FLAGS=""
 COPY --from=binary /pgvecto-rs-binary-release.deb /tmp/vectors.deb
-RUN apt-get install -y /tmp/vectors.deb && \
+RUN apt-get --no-install-recommends install -y /tmp/vectors.deb && \
     rm -f /tmp/vectors.deb && \
     mv /usr/lib/postgresql/16/lib/vectors.so /opt/bitnami/postgresql/lib/ && \
     mv /usr/share/postgresql/16/extension/vector* /opt/bitnami/postgresql/share/extension/
