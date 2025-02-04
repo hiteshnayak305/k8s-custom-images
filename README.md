@@ -142,7 +142,7 @@ A collection of customized docker images for deployment in local kubernetes clus
 - **Image:** [hiteshnayak305/immich-server](https://hub.docker.com/r/hiteshnayak305/immich-server)
 - **Base Image:** [immich-server](https://github.com/immich-app/immich/pkgs/container/immich-server)
 
-## Bitnami PostgreSQL (pgvecto.rs v0.2.0 included)
+## Bitnami PostgreSQL (pgvecto.rs v0.3.0 included)
 
 ![Docker Stars](https://img.shields.io/docker/stars/hiteshnayak305/bitnami-postgresql-pgvecto-rs)
 ![Docker Image Version](https://img.shields.io/docker/v/hiteshnayak305/bitnami-postgresql-pgvecto-rs)

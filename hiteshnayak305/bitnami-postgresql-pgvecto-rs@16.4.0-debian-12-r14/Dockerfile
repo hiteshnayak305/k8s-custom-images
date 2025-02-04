@@ -1,5 +1,5 @@
 ARG VERSION=16.4.0-debian-12-r14
-ARG PGVECTO_RS_VERSION=pg16-v0.2.0-amd64
+ARG PGVECTO_RS_VERSION=pg16-v0.3.0-amd64
 #latest
 
 # Binary Image
