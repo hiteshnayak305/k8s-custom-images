@@ -9,9 +9,10 @@ LABEL description="This is a customized Jenkins Inbound Agent Image to be deploy
 # Install custom Root CA Certificate
 USER root
 COPY common/custom.crt /usr/local/share/ca-certificates/
-RUN update-ca-certificates && \
+RUN apk --no-cache add ca-certificates && \
+    update-ca-certificates && \
     ${JAVA_HOME}/bin/keytool -import -cacerts -noprompt\
-        -alias custom \
-        -storepass changeit \
-        -file /usr/local/share/ca-certificates/custom.crt
+    -alias custom \
+    -storepass changeit \
+    -file /usr/local/share/ca-certificates/custom.crt
 USER jenkins
