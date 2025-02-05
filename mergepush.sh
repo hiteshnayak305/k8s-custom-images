@@ -6,7 +6,7 @@ declare -a arr=( \
    "hiteshnayak305/eclipse-temurin@23-jdk-alpine" \
    "hiteshnayak305/gitea@1.22.3-rootless" \
    "hiteshnayak305/grafana@11.4.0" \
-   "hiteshnayak305/inbound-agent@3273.v4cfe589b_fd83-1-alpine" \
+   "hiteshnayak305/inbound-agent@3283.v92c105e0f819-7-alpine" \
    "hiteshnayak305/jenkins@2.492.1-alpine" \
    "hiteshnayak305/k8s@1.31.4" \
    "hiteshnayak305/kaniko@debug" \
