@@ -25,6 +25,6 @@ RUN jenkins-plugin-cli --war /usr/share/jenkins/jenkins.war --latest true --plug
     kubernetes workflow-aggregator git configuration-as-code \
     gitea blueocean job-dsl purge-job-history jobConfigHistory view-job-filters dependency-check-jenkins-plugin \
     junit coverage htmlpublisher \
-    material-theme \
+    material-theme dark-theme pipeline-stage-view pipeline-graph-view \
     prometheus cloudbees-disk-usage-simple \
     sonar
