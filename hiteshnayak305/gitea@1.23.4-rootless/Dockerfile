@@ -1,5 +1,5 @@
 ARG VERSION=latest
-FROM gitea/gitea:$VERSION
+FROM docker.gitea.com/gitea:$VERSION
 
 # Information
 LABEL org.opencontainers.image.authors="hiteshnayak305@gmail.com"

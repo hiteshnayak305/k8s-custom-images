@@ -10,7 +10,7 @@ A collection of customized docker images for deployment in local kubernetes clus
 ![Docker Pulls](https://img.shields.io/docker/pulls/hiteshnayak305/gitea)
 
 - **Image:** [hiteshnayak305/gitea](https://hub.docker.com/r/hiteshnayak305/gitea)
-- **Base Image:** [gitea/gitea](https://hub.docker.com/r/gitea/gitea)
+- **Base Image:** [gitea](https://docker.gitea.com/gitea)
 
 ## Jenkins
 
