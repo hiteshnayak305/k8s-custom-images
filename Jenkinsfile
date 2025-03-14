@@ -34,7 +34,7 @@ pipeline {
       agent {
         kubernetes {
           defaultContainer 'jnlp'
-          inheritFrom 'kaniko'
+          inheritFrom 'docker-buildkit'
         }
       }
       steps {
@@ -43,11 +43,11 @@ pipeline {
           env.VERSION = env.BRANCH_NAME.toString().split("@")[1];
           env.CONTEXT = env.BRANCH_NAME.toString();
         }
-        container('kaniko') {
+        container('docker') {
           withCredentials([file(credentialsId: 'docker-harbor', variable: 'CONFIG')]) {
             sh """
-              mkdir -p /kaniko/.docker && cat $CONFIG > /kaniko/.docker/config.json
-              /kaniko/executor --context `pwd` --dockerfile `pwd`/${env.CONTEXT}/Dockerfile --build-arg=VERSION=${env.VERSION} --destination=docker.io/${env.IMAGE}:${env.VERSION}
+              mkdir -p /root/.docker && cat $CONFIG > /root/.docker/config.json
+              docker buildx build --platform linux/amd64 -t docker.io/${env.IMAGE}:${env.VERSION} -f `pwd`/${env.CONTEXT}/Dockerfile --push --build-arg=VERSION=${env.VERSION} `pwd`
               """
           }
         }
