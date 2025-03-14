@@ -1,6 +1,7 @@
 ## declare an array variable
 declare -a arr=( \
    "hiteshnayak305/bitnami-postgresql-pgvecto-rs@16.4.0-debian-12-r14" \
+   "hiteshnayak305/docker@cli" \
    "hiteshnayak305/eclipse-temurin@17-jdk-alpine" \
    "hiteshnayak305/eclipse-temurin@21-jdk-alpine" \
    "hiteshnayak305/eclipse-temurin@23-jdk-alpine" \

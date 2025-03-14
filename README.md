@@ -42,6 +42,16 @@ A collection of customized docker images for deployment in local kubernetes clus
 - **Image:** [hiteshnayak305/kaniko](https://hub.docker.com/r/hiteshnayak305/kaniko)
 - **Base Image:** [kaniko-project/executor](https://gcr.io/kaniko-project/executor)
 
+## Docker
+
+![Docker Stars](https://img.shields.io/docker/stars/hiteshnayak305/docker)
+![Docker Image Version](https://img.shields.io/docker/v/hiteshnayak305/docker)
+![Docker Image Size](https://img.shields.io/docker/image-size/hiteshnayak305/docker)
+![Docker Pulls](https://img.shields.io/docker/pulls/hiteshnayak305/docker)
+
+- **Image:** [hiteshnayak305/docker](https://hub.docker.com/r/hiteshnayak305/docker)
+- **Base Image:** [docker](https://hub.docker.com/_/docker)
+
 ## K8S
 
 ![Docker Stars](https://img.shields.io/docker/stars/hiteshnayak305/k8s)
