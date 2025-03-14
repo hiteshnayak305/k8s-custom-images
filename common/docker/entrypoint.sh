@@ -2,7 +2,7 @@
 
 # Wait for the BuildKit daemon to be ready
 while ! nc -z "$BUILDKIT_HOST" "$BUILDKIT_PORT"; do
-    echo "Waiting for $BUILDKIT_HOST:$BUILDKIT_PORT..."
+    echo "Waiting for buildkit on $BUILDKIT_HOST:$BUILDKIT_PORT..."
     sleep 5s
 done
 # Create a new BuildKit instance
