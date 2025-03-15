@@ -45,10 +45,8 @@ pipeline {
         }
         container('docker') {
           withCredentials([file(credentialsId: 'docker-harbor', variable: 'CONFIG')]) {
-            sh '''
-              mkdir -p /root/.docker && cp $CONFIG /root/.docker/config.json
-              docker buildx build --platform linux/amd64 -t docker.io/${env.IMAGE}:${env.VERSION} -f `pwd`/${env.CONTEXT}/Dockerfile --push --build-arg=VERSION=${env.VERSION} `pwd`
-            '''
+            sh ('mkdir -p /root/.docker && cp $CONFIG /root/.docker/config.json')
+            sh ("docker buildx build --platform linux/amd64 -t docker.io/${env.IMAGE}:${env.VERSION} -f `pwd`/${env.CONTEXT}/Dockerfile --push --build-arg=VERSION=${env.VERSION} `pwd`")
           }
         }
       }
