@@ -1,3 +1,5 @@
+ARG VERSION=debug
+
 # Generate latest ca-certificates
 FROM debian:bullseye-slim AS certs
 ENV DEBIAN_FRONTEND=noninteractive
@@ -8,7 +10,6 @@ COPY common/custom.crt /usr/local/share/ca-certificates/
 RUN update-ca-certificates
 
 # build actual image
-ARG VERSION=latest
 FROM gcr.io/kaniko-project/executor:$VERSION
 
 # Information
