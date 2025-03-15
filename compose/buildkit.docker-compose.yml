@@ -1,0 +1,14 @@
+#docker buildx build -t harbor.hitesh.com/hiteshnayak305/test --push -f Dockerfile .
+services:
+  buildkit:
+    image: hiteshnayak305/buildkit:v0.20.1
+    command: --addr "tcp://127.0.0.1:1234"
+    privileged: true
+    network_mode: host
+  docker:
+    image: hiteshnayak305/docker:cli
+    command: sleep infinity
+    privileged: true
+    network_mode: host
+    volumes:
+      - /home/hitesh/.docker:/root/.docker
