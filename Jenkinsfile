@@ -18,7 +18,7 @@ pipeline {
       steps {
         container('ssc') {
           withSonarQubeEnv('sonarqube') {
-            sh "sonar-scanner -Dsonar.host.url=${SONAR_HOST_URL} -Dsonar.token=${SONAR_AUTH_TOKEN}"
+            sh ('sonar-scanner -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.token=$SONAR_AUTH_TOKEN')
           }
         }
         timeout(time: 1, unit: 'HOURS') {
@@ -45,10 +45,10 @@ pipeline {
         }
         container('docker') {
           withCredentials([file(credentialsId: 'docker-harbor', variable: 'CONFIG')]) {
-            sh """
-              mkdir -p /root/.docker && cat $CONFIG > /root/.docker/config.json
+            sh '''
+              mkdir -p /root/.docker && cp $CONFIG > /root/.docker/config.json
               docker buildx build --platform linux/amd64 -t docker.io/${env.IMAGE}:${env.VERSION} -f `pwd`/${env.CONTEXT}/Dockerfile --push --build-arg=VERSION=${env.VERSION} `pwd`
-              """
+            '''
           }
         }
       }
