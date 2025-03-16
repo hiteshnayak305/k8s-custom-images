@@ -52,6 +52,16 @@ A collection of customized docker images for deployment in local kubernetes clus
 - **Image:** [hiteshnayak305/docker](https://hub.docker.com/r/hiteshnayak305/docker)
 - **Base Image:** [docker](https://hub.docker.com/_/docker)
 
+## BuildKit
+
+![Docker Stars](https://img.shields.io/docker/stars/hiteshnayak305/buildkit)
+![Docker Image Version](https://img.shields.io/docker/v/hiteshnayak305/buildkit)
+![Docker Image Size](https://img.shields.io/docker/image-size/hiteshnayak305/buildkit)
+![Docker Pulls](https://img.shields.io/docker/pulls/hiteshnayak305/buildkit)
+
+- **Image:** [hiteshnayak305/buildkit](https://hub.docker.com/r/hiteshnayak305/buildkit)
+- **Base Image:** [moby/buildkit](https://hub.docker.com/r/moby/buildkit)
+
 ## K8S
 
 ![Docker Stars](https://img.shields.io/docker/stars/hiteshnayak305/k8s)
