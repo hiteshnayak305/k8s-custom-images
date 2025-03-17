@@ -15,12 +15,12 @@ COPY common/custom.crt /usr/local/share/ca-certificates/
 RUN update-ca-certificates
 
 # Install entrypoint script
-COPY common/docker/entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY hiteshnayak305/docker@cli/scripts/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
 CMD [ "/bin/sh" ]
 
 # Healthcheck
-COPY common/docker/healthcheck.sh /usr/local/bin/healthcheck.sh
+COPY hiteshnayak305/docker@cli/scripts/healthcheck.sh /usr/local/bin/healthcheck.sh
 RUN chmod +x /usr/local/bin/healthcheck.sh
 HEALTHCHECK --interval=10s --timeout=3s --start-period=10s --retries=3 CMD [ "/usr/local/bin/healthcheck.sh" ]
