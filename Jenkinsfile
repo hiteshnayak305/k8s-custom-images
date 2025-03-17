@@ -32,11 +32,11 @@ pipeline {
           branch comparator: 'GLOB', pattern: 'hiteshnayak305/**'
           anyOf {
             changeset "${env.BRANCH_NAME}/**"
+            changeset "common/**"
             isRestartedRun()
             triggeredBy cause: "UserIdCause"
           }
         }
-        beforeOptions true
       }
       agent {
         kubernetes {
