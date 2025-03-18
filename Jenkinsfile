@@ -28,15 +28,8 @@ pipeline {
     }
     stage('Build & Push Docker Image') {
       when {
-        allOf {
-          branch comparator: 'GLOB', pattern: 'hiteshnayak305/**'
-          anyOf {
-            changeset "${env.BRANCH_NAME}/**"
-            changeset "common/**"
-            isRestartedRun()
-            triggeredBy cause: "UserIdCause"
-          }
-        }
+        branch comparator: 'GLOB', pattern: 'hiteshnayak305/**'
+        beforeOptions true
       }
       agent {
         kubernetes {
