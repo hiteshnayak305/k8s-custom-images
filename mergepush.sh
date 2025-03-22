@@ -9,7 +9,7 @@ declare -a arr=( \
    "hiteshnayak305/gitea@1.23.4-rootless" \
    "hiteshnayak305/grafana@11.5.2" \
    "hiteshnayak305/immich-server@v1.129.0" \
-   "hiteshnayak305/inbound-agent@3283.v92c105e0f819-9-alpine" \
+   "hiteshnayak305/inbound-agent@3299.v0d0d06908537-1-alpine" \
    "hiteshnayak305/jenkins@2.492.2-alpine" \
    "hiteshnayak305/k8s@1.31.4" \
    "hiteshnayak305/kaniko@debug" \
