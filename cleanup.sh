@@ -1,6 +1,6 @@
 ## declare an array variable
 declare -a arr=( \
-   "hiteshnayak305/gitea@1.23.4-rootless" \
+   "hiteshnayak305/grafana@11.5.2" \
 )
 
 ## now loop through the above array
