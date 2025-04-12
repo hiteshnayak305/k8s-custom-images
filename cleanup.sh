@@ -1,6 +1,6 @@
 ## declare an array variable
 declare -a arr=( \
-   "hiteshnayak305/kubernetes-event-exporter@1.7.0-debian-12-r31" \
+   "hiteshnayak305/gitea@1.23.4-rootless" \
 )
 
 ## now loop through the above array
