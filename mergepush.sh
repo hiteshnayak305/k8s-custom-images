@@ -11,7 +11,7 @@ declare -a arr=( \
    "hiteshnayak305/immich-server@v1.132.1" \
    "hiteshnayak305/inbound-agent@3307.v632ed11b_3a_c7-2-alpine" \
    "hiteshnayak305/jenkins@2.492.3-alpine-jdk21" \
-   "hiteshnayak305/k8s@1.31.4" \
+   "hiteshnayak305/k8s@1.32.4" \
    "hiteshnayak305/kaniko@debug" \
    "hiteshnayak305/kubernetes-event-exporter@1.7.0-debian-12-r33" \
    "hiteshnayak305/node@22-alpine" \
